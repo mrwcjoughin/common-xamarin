@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+    xmlns:localViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+    x:Class="common.xamarin.Core.Views.MenuView"
+    Padding="{StaticResource zeroPaddingThickness}"
+    >
+    <ContentView.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+                  iOS="{StaticResource standardBackgroundColoriOS}"
+                  Android="{StaticResource standardBackgroundColorAndroid}"
+                  WinPhone="{StaticResource standardBackgroundColorWinPhone}" />
+	</ContentView.BackgroundColor>
+
+    <ContentView.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand">
+                <Grid RowSpacing="0"
+                      ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition>
+		                	<RowDefinition.Height>
+								<OnPlatform x:TypeArguments="xfc:GridLength"
+						                  iOS="{StaticResource navigationBarGridLengthHeightiOS}"
+						                  Android="{StaticResource navigationBarGridLengthHeightAndroid}"
+						                  WinPhone="{StaticResource navigationBarGridLengthHeightWinPhone}" />
+							</RowDefinition.Height>
+		                </RowDefinition>
+
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="*"
+                                    Android="166"
+                                    WinPhone="244"/>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+<!--                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="44"
+                                    Android="48"
+                                    WinPhone="50"/>
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                              <OnPlatform x:TypeArguments="xfc:GridLength"
+                                          iOS="1"
+                                          Android="1"
+                                          WinPhone="1" />
+                            </RowDefinition.Height>
+                        </RowDefinition>
+
+                        <RowDefinition>
+                            <RowDefinition.Height>
+                                <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="120"
+                                    Android="125"
+                                    WinPhone="1000"/>
+                            </RowDefinition.Height>
+                        </RowDefinition>-->
+                    </Grid.RowDefinitions>
+                    <ContentView Grid.Row="0"
+                        VerticalOptions="FillAndExpand" 
+                        Padding="10,0,0,0">
+                        <ContentView.BackgroundColor>
+							<OnPlatform x:TypeArguments="Color"
+					                  iOS="{StaticResource secondaryBackgroundColoriOS}"
+					                  Android="{StaticResource secondaryBackgroundColorAndroid}"
+					                  WinPhone="{StaticResource secondaryBackgroundColorWinPhone}" />
+						</ContentView.BackgroundColor>
+                        <Label Text="{Binding MenuName}" 
+							HorizontalOptions="FillAndExpand" 
+							VerticalOptions="CenterAndExpand" 
+							LineBreakMode="TailTruncation">
+							<Label.TextColor>
+								<OnPlatform x:TypeArguments="Color"
+						                  iOS="{StaticResource standardBackgroundColoriOS}"
+						                  Android="{StaticResource standardBackgroundColoriOS}"
+						                  WinPhone="{StaticResource standardBackgroundColoriOS}" />
+							</Label.TextColor>
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double"
+									iOS="{StaticResource headingTextSizeiOS}"
+									Android="{StaticResource headingTextSizeAndroid}"
+									WinPhone="{StaticResource headingTextSizeWinPhone}" />
+                            </Label.FontSize>
+                        </Label>
+                    </ContentView>
+
+                    <ContentView Grid.Row="1"
+                    	HorizontalOptions="FillAndExpand"
+	                    VerticalOptions="FillAndExpand"
+                    	Padding="0,20,0,0">
+	                    <ListView ItemsSource="{Binding Path=MenuOptionItems}"
+	                            HorizontalOptions="FillAndExpand"
+	                            VerticalOptions="FillAndExpand"
+	                            SeparatorVisibility="None"
+	                            HasUnevenRows="false"
+	                            IsGroupingEnabled="false"
+	                            BackgroundColor="Transparent"
+	                            >
+	                        <ListView.RowHeight>
+	                            <OnPlatform x:TypeArguments="x:Int32"
+	                                    iOS="40"
+	                                    Android="41"
+	                                    WinPhone="61" />
+	                        </ListView.RowHeight>
+	                        <ListView.ItemTemplate>
+	                            <DataTemplate>
+	                                <ViewCell>
+	                                    <ViewCell.View>
+	                                        <localViews:MenuItemView HorizontalOptions="FillAndExpand"
+	                                                                 VerticalOptions="FillAndExpand"/>
+	                                    </ViewCell.View>
+	                                </ViewCell>
+	                            </DataTemplate>
+	                      </ListView.ItemTemplate>
+	                  </ListView>
+                  </ContentView>
+<!--                  <ContentView Grid.Row="2"
+                        VerticalOptions="FillAndExpand" 
+                        Padding="10,0,0,0">
+						<ContentView.BackgroundColor>
+							<OnPlatform x:TypeArguments="Color"
+					                  iOS="{StaticResource secondaryBackgroundColoriOS}"
+					                  Android="{StaticResource secondaryBackgroundColorAndroid}"
+					                  WinPhone="{StaticResource secondaryBackgroundColorWinPhone}" />
+						</ContentView.BackgroundColor>
+                        <Label Text="{Binding AdminMenuName}" 
+							HorizontalOptions="FillAndExpand" 
+							VerticalOptions="CenterAndExpand" 
+							LineBreakMode="TailTruncation">
+                            <Label.TextColor>
+								<OnPlatform x:TypeArguments="Color"
+						                  iOS="{StaticResource alternateForegroundColoriOS}"
+						                  Android="{StaticResource alternateForegroundColoriOS}"
+						                  WinPhone="{StaticResource alternateForegroundColoriOS}" />
+							</Label.TextColor>
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double"
+									iOS="{StaticResource headingTextSizeiOS}"
+									Android="{StaticResource headingTextSizeAndroid}"
+									WinPhone="{StaticResource headingTextSizeWinPhone}" />
+                            </Label.FontSize>
+                        </Label>
+                    </ContentView>-->
+
+<!--                    <BoxView Grid.Row="3">
+                        <BoxView.Color>
+							<OnPlatform x:TypeArguments="Color"
+					                  iOS="{StaticResource menuSeparatorColoriOS}"
+					                  Android="{StaticResource menuSeparatorColorAndroid}"
+					                  WinPhone="{StaticResource menuSeparatorColorWinPhone}" />
+						</BoxView.Color>
+                    </BoxView>-->
+
+<!--                    <ListView x:Name="adminListView" Grid.Row="4"
+                            ItemsSource="{Binding Path=AdminMenuOptionItems}"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            SeparatorVisibility="None"
+                            HasUnevenRows="false"
+                            IsGroupingEnabled="false"
+                            BackgroundColor="Transparent">
+                        <ListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                    iOS="40"
+                                    Android="41"
+                                    WinPhone="61" />
+                        </ListView.RowHeight>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <localViews:MenuItemView HorizontalOptions="FillAndExpand"
+                                                                 VerticalOptions="FillAndExpand"/>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                  </ListView>-->
+              </Grid>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

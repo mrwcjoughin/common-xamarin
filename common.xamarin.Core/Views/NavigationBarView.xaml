@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+	xmlns:localViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+	x:Class="common.xamarin.Core.Views.NavigationBarView"
+	Padding="{StaticResource zeroPaddingThickness}"
+	WidthRequest="{Binding FavouriteGridWidth}">
+	<ContentView.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+                  iOS="{StaticResource navigationBarBackgroundColoriOS}"
+                  Android="{StaticResource navigationBarBackgroundColorAndroid}"
+                  WinPhone="{StaticResource navigationBarBackgroundColorWinPhone}" />
+	</ContentView.BackgroundColor>
+	<ContentView.Content BackgroundColor="Transparent"
+		Padding="{StaticResource zeroPaddingThickness}">
+		<Grid RowSpacing="0"
+            ColumnSpacing="0">
+			<Grid.BackgroundColor>
+				<OnPlatform x:TypeArguments="Color"
+		                  iOS="{StaticResource navigationBarBackgroundColoriOS}"
+		                  Android="{StaticResource navigationBarBackgroundColorAndroid}"
+		                  WinPhone="{StaticResource navigationBarBackgroundColorWinPhone}" />
+			</Grid.BackgroundColor>
+			
+			<Grid.Padding>
+				<OnPlatform x:TypeArguments="Thickness"
+	                        iOS="{StaticResource standardViewPaddingThicknessiOS}"
+	                        Android="{StaticResource standardViewPaddingThicknessAndroid}"
+	                        WinPhone="{StaticResource standardViewPaddingThicknessWinPhone}"/>
+			</Grid.Padding>
+
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="5"
+                                    Android="5"
+                                    WinPhone="10"/>
+                    </RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition>
+	              	<RowDefinition.Height>
+	                	<OnPlatform x:TypeArguments="xfc:GridLength"
+	                                iOS="30"
+	                                Android="30"
+	                                WinPhone="50"/>
+	              	</RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="5"
+                                    Android="5"
+                                    WinPhone="10"/>
+                    </RowDefinition.Height>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+				<ColumnDefinition>
+                    <ColumnDefinition.Width>
+                        <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="50"
+                                    Android="45"
+                                    WinPhone="80"/>
+                    </ColumnDefinition.Width>
+                </ColumnDefinition>
+        		<ColumnDefinition Width="*"/>
+                <ColumnDefinition>
+                    <ColumnDefinition.Width>
+                        <OnPlatform x:TypeArguments="xfc:GridLength"
+                                    iOS="50"
+                                    Android="45"
+                                    WinPhone="80"/>
+                    </ColumnDefinition.Width>
+                </ColumnDefinition>
+    		</Grid.ColumnDefinitions>
+
+            <ContentView Grid.Row="0" Grid.ColumnSpan="3"
+                Padding="0,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                HeightRequest="10"
+                >
+            </ContentView>
+
+            <Grid Grid.Row="1" Grid.Column="0"
+				RowSpacing="0"
+				ColumnSpacing="0"
+				BackgroundColor="Transparent"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.Padding>
+					<OnPlatform x:TypeArguments="Thickness"
+								iOS="0, 0, 0, 0"
+								Android="0, 0, 0, 0"
+								WinPhone="0, 0, 0, 0"/>
+				</Grid.Padding>
+				<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+                    <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnPlatform x:TypeArguments="xfc:GridLength"
+									    iOS="30"
+									    Android="30"
+									    WinPhone="50"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+									Command="{Binding BackCommand}"
+									NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                
+                <ContentView Grid.Column="0"
+							Grid.Row="0"
+					        HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							BackgroundColor="Transparent"
+                            >
+					<ContentView.Padding>
+						<OnPlatform x:TypeArguments="Thickness"
+									iOS="0, 0, 0, 0"
+									Android="0, 0, 0, 0"
+									WinPhone="12, 0, 0, 0"/>
+					</ContentView.Padding>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer
+									Command="{Binding BackCommand}"
+									NumberOfTapsRequired="1" />
+                    </ContentView.GestureRecognizers>
+                    <Image Aspect="AspectFit"
+							HorizontalOptions="Start"
+							VerticalOptions="Center"
+                            BackgroundColor="Transparent"
+                            >
+                            <Image.Source>
+								<OnPlatform x:TypeArguments="xfc:ImageSource"
+													    iOS="{StaticResource backFileImageSource_iOS}"
+													    Android="{StaticResource backFileImageSource_Android}"
+													    WinPhone="{StaticResource backFileImageSource_WinPhone}"
+														/>
+							</Image.Source>
+                            <Image.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="20"
+                                            Android="20"
+                                            WinPhone="30"/>
+                            </Image.HeightRequest>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+    									Command="{Binding BackCommand}"
+    									NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                    </Image>
+                </ContentView>
+				
+				<ContentView Grid.Row="0" Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="Transparent"
+					Padding="{StaticResource zeroPaddingThickness}">
+					<ContentView.GestureRecognizers>
+						<TapGestureRecognizer
+								Command="{Binding BackCommand}"
+								NumberOfTapsRequired="1" />
+					</ContentView.GestureRecognizers>
+					<Label 
+                		HorizontalOptions="Center"
+                		VerticalOptions="Center"
+                		FontAttributes="Bold"
+                		Text="{Binding BackText}"
+                        BackgroundColor="Transparent"
+                		>
+                		<Label.TextColor>
+							<OnPlatform x:TypeArguments="Color"
+					                  iOS="{StaticResource navigationBarForegroundColoriOS}"
+					                  Android="{StaticResource navigationBarForegroundColorAndroid}"
+					                  WinPhone="{StaticResource navigationBarForegroundColorWinPhone}" />
+						</Label.TextColor>
+                		<Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding Path=BackCommand}"
+                                    NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+						<Label.FontSize>
+							<OnPlatform x:TypeArguments="x:Double"
+									iOS="{StaticResource secondaryTextSizeiOS}"
+									Android="{StaticResource secondaryTextSizeAndroid}"
+									WinPhone="{StaticResource secondaryTextSizeWinPhone}" />
+						</Label.FontSize>
+					</Label>
+				</ContentView>
+			</Grid>
+
+			<Grid Grid.Row="1" Grid.Column="1"
+	        	HorizontalOptions="CenterAndExpand"
+			    VerticalOptions="FillAndExpand"
+				Padding="{StaticResource zeroPaddingThickness}">
+	        	<Grid.RowDefinitions>
+		            <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnPlatform x:TypeArguments="xfc:GridLength"
+									    iOS="30"
+									    Android="30"
+									    WinPhone="50"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+		        </Grid.RowDefinitions>
+
+		        <Grid.ColumnDefinitions>
+		            <ColumnDefinition Width="Auto" />
+
+		            <ColumnDefinition Width="Auto" />
+		    	</Grid.ColumnDefinitions>
+
+		    	<ContentView Grid.Row="0" Grid.Column="0"
+            		HorizontalOptions="CenterAndExpand"
+            		VerticalOptions="CenterAndExpand"
+		            BackgroundColor="Transparent">
+		            <ContentView.Padding>
+		                <OnPlatform x:TypeArguments="Thickness"
+		                            iOS="0, 0, 0, 0"
+		                            Android="0, 0, 0, 0"
+		                            WinPhone="12, 0, 0, 0"/>
+		            </ContentView.Padding>
+		            <Image Aspect="AspectFit"
+		                 HorizontalOptions="CenterAndExpand"
+		                 VerticalOptions="CenterAndExpand"
+		                 BackgroundColor="Transparent"
+		                 Source="{Binding TitleImageSource}"
+		                 >
+		            </Image>
+		        </ContentView>
+
+	            <ContentView Grid.Row="0" Grid.Column="1"
+		            VerticalOptions="CenterAndExpand"
+		            HorizontalOptions="CenterAndExpand"
+		            BackgroundColor="Transparent"
+					Padding="{StaticResource zeroPaddingThickness}">
+	                <Label 
+					    VerticalOptions="CenterAndExpand"
+					    HorizontalOptions="CenterAndExpand"
+	                    LineBreakMode="TailTruncation"
+	                    BackgroundColor="Transparent"
+	                    Text="{Binding TitleText}"
+					    TextColor="{Binding TitleTextForegroundColor}"
+	                    FontAttributes="Bold">
+	                    <Label.FontSize>
+	                        <OnPlatform x:TypeArguments="x:Double"
+										iOS="{StaticResource standardTextSizeiOS}"
+										Android="{StaticResource standardTextSizeAndroid}"
+										WinPhone="{StaticResource standardTextSizeWinPhone}" />
+	                    </Label.FontSize>
+	                </Label>
+	            </ContentView>
+	        </Grid>
+
+            <ContentView Grid.Row="1" Grid.Column="2"
+                VerticalOptions="FillAndExpand"
+		        HorizontalOptions="FillAndExpand"
+				BackgroundColor="Transparent"
+                IsVisible="{Binding IsDoneButtonVisible}"
+				Padding="{StaticResource zeroPaddingThickness}">
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer
+								Command="{Binding Path=DoneCommand}"
+								NumberOfTapsRequired="1" />
+                </ContentView.GestureRecognizers>
+                <Label HorizontalOptions="Center"
+						VerticalOptions="Center"
+                		FontAttributes="Bold"
+                		Text="{Binding DoneText}"
+						IsVisible="{Binding IsDoneButtonVisible}"
+                        BackgroundColor="Transparent"
+                        >
+                        <Label.TextColor>
+							<OnPlatform x:TypeArguments="Color"
+					                  iOS="{StaticResource navigationBarForegroundColoriOS}"
+					                  Android="{StaticResource navigationBarForegroundColorAndroid}"
+					                  WinPhone="{StaticResource navigationBarForegroundColorWinPhone}" />
+						</Label.TextColor>
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer
+										Command="{Binding Path=DoneCommand}"
+										NumberOfTapsRequired="1" />
+						</Label.GestureRecognizers>
+						<Label.FontSize>
+							<OnPlatform x:TypeArguments="x:Double"
+									iOS="{StaticResource secondaryTextSizeiOS}"
+									Android="{StaticResource secondaryTextSizeAndroid}"
+									WinPhone="{StaticResource secondaryTextSizeWinPhone}" />
+						</Label.FontSize>
+                </Label>
+			</ContentView>
+
+            <ContentView Grid.Row="1" Grid.Column="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand"
+		                BackgroundColor="Transparent"
+						Padding="{StaticResource zeroPaddingThickness}">
+                <ActivityIndicator 
+			            IsVisible="{Binding IsBusy, Mode=TwoWay}"
+			            IsRunning="{Binding IsBusy, Mode=TwoWay}"
+			            HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand"
+		                BackgroundColor="Transparent"
+			            >
+			            <ActivityIndicator.Color>
+							<OnPlatform x:TypeArguments="Color"
+					                  iOS="{StaticResource activityIndicatorForegroundColoriOS}"
+					                  Android="{StaticResource activityIndicatorForegroundColorAndroid}"
+					                  WinPhone="{StaticResource activityIndicatorForegroundColorWinPhone}" />
+						</ActivityIndicator.Color>
+				</ActivityIndicator>
+            </ContentView>
+        </Grid>
+	</ContentView.Content>
+</ContentView>

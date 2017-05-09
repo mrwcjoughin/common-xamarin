@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+    xmlns:localViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+    x:Class="common.xamarin.Core.Views.MenuItemView"
+    >
+    <ContentView.Content>
+        <Grid RowSpacing="0"
+            ColumnSpacing="0"
+            BackgroundColor="Transparent">
+            <Grid.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
+                        iOS="0, 0, 0, 0"
+                        Android="0, 0, 0, 0"
+                        WinPhone="0, 0, 0, 0" />
+            </Grid.Padding>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding SelectCommand}"
+                    NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
+
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="xfc:GridLength"
+                                iOS="50"
+                                Android="40"
+                                WinPhone="60" />
+                    </RowDefinition.Height>
+                </RowDefinition>
+
+                <RowDefinition>
+                    <RowDefinition.Height>
+                      <OnPlatform x:TypeArguments="xfc:GridLength"
+                                  iOS="1"
+                                  Android="1"
+                                  WinPhone="1" />
+                    </RowDefinition.Height>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                    <ColumnDefinition.Width>
+                        <OnPlatform x:TypeArguments="xfc:GridLength"
+                                iOS="50"
+                                Android="Auto"
+                                WinPhone="74" />
+                    </ColumnDefinition.Width>
+                </ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentView Grid.Row="0" Grid.Column="0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <ContentView.Padding>
+                    <OnPlatform x:TypeArguments="Thickness"
+                          iOS="0, 0, 0, 0"
+                          Android="0, 0, 0, 0"
+                          WinPhone="0, 0, 0, 0" />
+                </ContentView.Padding>
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding SelectCommand}"
+                        NumberOfTapsRequired="1" />
+                </ContentView.GestureRecognizers>
+                <Image Aspect="AspectFit"
+                    Source="{Binding IconImageSource}"
+                    HorizontalOptions="CenterAndExpand"
+                	VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SelectCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </ContentView>
+
+            <ContentView Grid.Row="0" Grid.Column="1"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <ContentView.Padding>
+                    <OnPlatform x:TypeArguments="Thickness"
+                          iOS="0, 0, 0, 0"
+                          Android="0, 0, 0, 0"
+                          WinPhone="0, 0, 0, 0" />
+                </ContentView.Padding>
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding SelectCommand}"
+                        NumberOfTapsRequired="1" />
+                </ContentView.GestureRecognizers>
+                <Label
+                    Text="{Binding Title}"
+                    HorizontalOptions="Start"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    LineBreakMode="TailTruncation">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double"
+                          iOS="18"
+                          Android="18"
+                          WinPhone="30" />
+                    </Label.FontSize>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SelectCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </ContentView>
+
+<!--            <BoxView Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Color="{StaticResource MenuSeparatorColor}">
+            </BoxView>-->
+        </Grid>
+    </ContentView.Content>
+</ContentView>

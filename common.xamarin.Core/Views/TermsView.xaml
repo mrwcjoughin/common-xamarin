@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core" 
+    xmlns:localViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+    x:Class="common.xamarin.Core.Views.TermsView">
+    <ContentView.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+                  iOS="{StaticResource secondaryBackgroundColoriOS}"
+                  Android="{StaticResource secondaryBackgroundColorAndroid}"
+                  WinPhone="{StaticResource secondaryBackgroundColorWinPhone}" />
+	</ContentView.BackgroundColor>
+    <ContentView.Content HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+        <Grid RowSpacing="0"
+              ColumnSpacing="0"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+            <Grid.Padding>
+                <OnPlatform x:TypeArguments="Thickness" 
+                    iOS="0, 0, 0, 0" 
+                    Android="0, 0, 0, 0" 
+                    WinPhone="0, 0, 0, 0"/>
+            </Grid.Padding>
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                	<RowDefinition.Height>
+						<OnPlatform x:TypeArguments="xfc:GridLength"
+				                  iOS="{StaticResource navigationBarGridLengthHeightiOS}"
+				                  Android="{StaticResource navigationBarGridLengthHeightAndroid}"
+				                  WinPhone="{StaticResource navigationBarGridLengthHeightWinPhone}" />
+					</RowDefinition.Height>
+                </RowDefinition>
+                
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            	<ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <localViews:NavigationBarView Grid.Row="0" Grid.Column="0">
+	            <localViews:NavigationBarView.BackgroundColor>
+					<OnPlatform x:TypeArguments="Color"
+			                  iOS="{StaticResource navigationBarBackgroundColoriOS}"
+			                  Android="{StaticResource navigationBarBackgroundColorAndroid}"
+			                  WinPhone="{StaticResource navigationBarBackgroundColorWinPhone}" />
+				</localViews:NavigationBarView.BackgroundColor>
+            </localViews:NavigationBarView>
+
+<!--            <ScrollView Grid.Row="1" 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" 
+                >-->
+                <Grid Grid.Row="1" Grid.Column="0"
+                	RowSpacing="0"
+                    ColumnSpacing="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid.BackgroundColor>
+						<OnPlatform x:TypeArguments="Color"
+				                  iOS="{StaticResource standardBackgroundColoriOS}"
+				                  Android="{StaticResource standardBackgroundColorAndroid}"
+				                  WinPhone="{StaticResource standardBackgroundColorWinPhone}" />
+					</Grid.BackgroundColor>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" 
+                            iOS="12, 12, 12, 12" 
+                            Android="12, 12, 12, 12" 
+                            WinPhone="12, 12, 12, 12" />
+                    </Grid.Padding>
+                    <localViews:WebView Grid.Row="0" Grid.Column="0" 
+                    	VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="Transparent"
+                    	Source="{Binding TermsPDF}"
+                    	WidthRequest="1000" HeightRequest="1000"
+                    	/>
+                </Grid>
+<!--            </ScrollView>-->
+        </Grid>
+    </ContentView.Content>
+</ContentView>

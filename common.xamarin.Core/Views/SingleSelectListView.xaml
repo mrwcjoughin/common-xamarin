@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+	xmlns:localCommonViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+	xmlns:localViews="clr-namespace:aliens.loop.xamarin.core.Views;assembly=aliens.loop.xamarin.core"
+	x:Class="common.xamarin.Core.Views.SingleSelectListView"
+	BackgroundColor="Green"
+	>
+<!--	<ContentView.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+					iOS="{StaticResource secondaryBackgroundColoriOS}"
+					Android="{StaticResource secondaryBackgroundColorAndroid}"
+					WinPhone="{StaticResource secondaryBackgroundColorWinPhone}" />
+	</ContentView.BackgroundColor>-->
+	<ContentView.Padding>
+    	<OnPlatform x:TypeArguments="Thickness"
+				    iOS="{StaticResource standardViewPaddingThicknessiOS}"
+				    Android="{StaticResource standardViewPaddingThicknessAndroid}"
+				    WinPhone="{StaticResource standardViewPaddingThicknessWinPhone}"/>
+	</ContentView.Padding>
+	<ContentView.Content HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand">
+          <StackLayout HorizontalOptions="FillAndExpand" 
+	            VerticalOptions="FillAndExpand"
+				Orientation="Vertical"
+				Spacing="0">
+	        
+                <!--<Grid.RowDefinitions>
+	            	<RowDefinition Height="*"/>
+	            </Grid.RowDefinitions>
+          		<Grid.ColumnDefinitions>
+	            	<ColumnDefinition Width="*"/>
+	            </Grid.ColumnDefinitions>-->
+
+			    <localCommonViews:ListView
+			    	HorizontalOptions="FillAndExpand"
+				    VerticalOptions="FillAndExpand"
+                    ItemsSource="{Binding FilteredList}"
+                    BackgroundColor="Transparent"
+				    SeparatorVisibility="None"
+				    HasUnevenRows="false"
+				    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+				    IsPullToRefreshEnabled="True"
+				    RefreshCommand="{Binding RefreshCommand}"
+				    >
+				    <ListView.RowHeight>
+				    	<OnPlatform x:TypeArguments="x:Int32"
+					                  iOS="{StaticResource singleGridRowHeightiOS}"
+					                  Android="{StaticResource singleGridRowHeightAndroid}"
+					                  WinPhone="{StaticResource singleGridRowHeightWinPhone}" />
+				    </ListView.RowHeight>
+				    <ListView.ItemTemplate>
+					    <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                  <Grid RowSpacing="0"
+                                        ColumnSpacing="0"
+                                        HorizontalOptions="FillAndExpand"
+			                            VerticalOptions="FillAndExpand"
+                                        BackgroundColor="Transparent"
+                                        Padding="{StaticResource zeroPaddingThickness}">
+                                        <Grid.RowDefinitions>
+                                          	<RowDefinition>
+							                	<RowDefinition.Height>
+													<OnPlatform x:TypeArguments="xfc:GridLength"
+											                  iOS="{StaticResource singleGridRowGridLengthHeightiOS}"
+											                  Android="{StaticResource singleGridRowGridLengthHeightAndroid}"
+											                  WinPhone="{StaticResource singleGridRowGridLengthHeightWinPhone}" />
+												</RowDefinition.Height>
+							                </RowDefinition>
+                                        	<RowDefinition>
+							                	<RowDefinition.Height>
+													<OnPlatform x:TypeArguments="xfc:GridLength"
+											                  iOS="{StaticResource separatorLineHeightiOS}"
+											                  Android="{StaticResource separatorLineHeightAndroid}"
+											                  WinPhone="{StaticResource separatorLineHeightWinPhone}" />
+												</RowDefinition.Height>
+							                </RowDefinition>
+				                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>                           
+
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer               
+												    Command="{Binding SelectAndBackCommand}"
+												    NumberOfTapsRequired="1" />
+                                        </Grid.GestureRecognizers>
+
+                                        <ContentView Grid.Row="0"
+    							            Grid.Column="0"
+    							            HorizontalOptions="FillAndExpand"
+    							            VerticalOptions="FillAndExpand"
+                                            BackgroundColor="Transparent"
+                                            Padding="{StaticResource zeroPaddingThickness}">
+                                            <ContentView.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding SelectCommand}"
+                                                    NumberOfTapsRequired="1" />
+                                            </ContentView.GestureRecognizers>
+
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  BackgroundColor="Transparent"
+                                                  >
+                                                <Grid.Padding>
+                                                    <OnPlatform x:TypeArguments="Thickness"
+                                                                iOS="0, 6, 0, 6"
+                                                                Android="0, 6, 0, 6"
+                                                                WinPhone="0, 6, 0, 6" />
+                                                </Grid.Padding>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition>
+                                                        <RowDefinition.Height>
+                                                            <OnPlatform x:TypeArguments="xfc:GridLength"
+                                                                        iOS="20"
+                                                                        Android="*"
+                                                                        WinPhone="17"/>
+                                                        </RowDefinition.Height>
+                                                    </RowDefinition>
+                                                    <RowDefinition>
+                                                        <RowDefinition.Height>
+                                                            <OnPlatform x:TypeArguments="xfc:GridLength"
+                                                                        iOS="20"
+                                                                        Android="*"
+                                                                        WinPhone="17"/>
+                                                        </RowDefinition.Height>
+                                                    </RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                	<ColumnDefinition>
+                                                		<ColumnDefinition.Width>
+                                                            <OnPlatform x:TypeArguments="xfc:GridLength"
+                                                                        iOS="{StaticResource rightArrowListItemGridLengthWidthiOS}"
+                                                                        Android="{StaticResource rightArrowListItemGridLengthWidthAndroid}"
+                                                                        WinPhone="{StaticResource rightArrowListItemGridLengthWidthWinPhone}"/>
+                                                        </ColumnDefinition.Width>
+                                                	</ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Grid.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                    Command="{Binding SelectCommand}"
+                                                    NumberOfTapsRequired="1" />
+                                                </Grid.GestureRecognizers>
+                                            
+                                                <ContentView Grid.Row="0"
+                                                    Grid.Column="0"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="FillAndExpand"
+                                                    BackgroundColor="Transparent"
+                                                    Padding="{StaticResource zeroPaddingThickness}">
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                Command="{Binding SelectCommand}"
+                                                                NumberOfTapsRequired="1" />
+                                                    </ContentView.GestureRecognizers>
+
+                                                    <Label HorizontalOptions="FillAndExpand"
+	                                                    VerticalOptions="CenterAndExpand"
+	                                                    LineBreakMode="TailTruncation"
+	                                                    Text="{Binding ListName}"
+	                                                    TextColor="{Binding ListNameForegroundColor}"
+	                                                    FontAttributes="Bold">
+                                                        <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double"
+                                                                        iOS="{StaticResource listTextSizeiOS}"
+                                                                        Android="{StaticResource listTextSizeAndroid}"
+                                                                        WinPhone="{StaticResource listTextSizeWinPhone}"/>
+                                                        </Label.FontSize>
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                    Command="{Binding SelectCommand}"
+                                                                    NumberOfTapsRequired="1" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </ContentView>
+
+                                                <ContentView Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    VerticalOptions="FillAndExpand"
+                                                    BackgroundColor="Transparent"
+                                                    Padding="{StaticResource zeroPaddingThickness}">
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                Command="{Binding SelectCommand}"
+                                                                NumberOfTapsRequired="1" />
+                                                    </ContentView.GestureRecognizers>
+
+                                                    <Label HorizontalOptions="FillAndExpand"
+	                                                    VerticalOptions="CenterAndExpand"
+	                                                    LineBreakMode="TailTruncation"
+	                                                    Text="{Binding ListName2}"
+                                                    	TextColor="{Binding ListName2ForegroundColor}">
+                                                        <Label.TextColor>
+                                                            <OnPlatform x:TypeArguments="xfc:Color"
+                                                                                iOS="{StaticResource alternateForegroundColoriOS}"
+                                                                                Android="{StaticResource alternateForegroundColorAndroid}"
+                                                                                WinPhone="{StaticResource alternateForegroundColorWinPhone}"/>
+                                                        </Label.TextColor>
+                                                        <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double"
+                                                                        iOS="{StaticResource listTextSizeiOS}"
+                                                                        Android="{StaticResource listTextSizeAndroid}"
+                                                                        WinPhone="{StaticResource listTextSizeWinPhone}"/>
+                                                        </Label.FontSize>
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                    Command="{Binding SelectCommand}"
+                                                                    NumberOfTapsRequired="1" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </ContentView>
+
+                                                <ContentView Grid.Row="1"
+                                                    Grid.Column="0"
+                                                    Grid.ColumnSpan="2"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="FillAndExpand"
+                                                    BackgroundColor="Transparent"
+                                                    Padding="{StaticResource zeroPaddingThickness}">
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                Command="{Binding SelectCommand}"
+                                                                NumberOfTapsRequired="1" />
+                                                    </ContentView.GestureRecognizers>
+
+                                                    <Label HorizontalOptions="FillAndExpand"
+	                                                    VerticalOptions="CenterAndExpand"
+	                                                    LineBreakMode="TailTruncation"
+	                                                    Text="{Binding ListName3}"
+	                                                    TextColor="{Binding ListName3ForegroundColor}">
+                                                        <Label.TextColor>
+                                                            <OnPlatform x:TypeArguments="xfc:Color"
+                                                                                iOS="{StaticResource alternateForegroundColoriOS}"
+                                                                                Android="{StaticResource alternateForegroundColorAndroid}"
+                                                                                WinPhone="{StaticResource alternateForegroundColorWinPhone}"/>
+                                                        </Label.TextColor>
+                                                        <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double"
+                                                                        iOS="{StaticResource listTextSizeiOS}"
+                                                                        Android="{StaticResource listTextSizeAndroid}"
+                                                                        WinPhone="{StaticResource listTextSizeWinPhone}"/>
+                                                        </Label.FontSize>
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                    Command="{Binding SelectCommand}"
+                                                                    NumberOfTapsRequired="1" />
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </ContentView>
+
+                                                <ContentView Grid.Row="0"
+                                                	Grid.RowSpan="2"
+                                                    Grid.Column="2"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    BackgroundColor="Transparent">
+                                                    <ContentView.Padding>
+                                                        <OnPlatform x:TypeArguments="Thickness"
+                                                                    iOS="0, 0, 0, 0"
+                                                                    Android="0, 0, 0, 0"
+                                                                    WinPhone="0, 0, 0, 0"/>
+                                                    </ContentView.Padding>
+                                                    <ContentView.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                                Command="{Binding SelectAndBackCommand}"
+                                                                NumberOfTapsRequired="1" />
+                                                    </ContentView.GestureRecognizers>
+                                                    <Image Aspect="AspectFit"
+                                                            Source="{StaticResource rightArrowFileImageSource_iOS}"
+                                                            HorizontalOptions="EndAndExpand"
+                                                            VerticalOptions="CenterAndExpand"
+                                                            BackgroundColor="Transparent">
+                                                        	<Image.Source>
+																<OnPlatform x:TypeArguments="xfc:ImageSource"
+																		    iOS="{StaticResource rightArrowFileImageSource_iOS}"
+																		    Android="{StaticResource rightArrowFileImageSource_Android}"
+																		    WinPhone="{StaticResource rightArrowFileImageSource_WinPhone}"
+																			/>
+															</Image.Source>
+	                                                        <Image.GestureRecognizers>
+	                                                            <TapGestureRecognizer
+	                                                                    Command="{Binding SelectAndBackCommand}"
+	                                                                    NumberOfTapsRequired="1" />
+	                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </ContentView>
+                                            </Grid>
+                                        </ContentView>
+
+                                      <BoxView
+	                                    Grid.Row="1"
+	                                    Grid.Column="0"
+	                                    HorizontalOptions="FillAndExpand"
+	                                    VerticalOptions="FillAndExpand"
+	                                    BackgroundColor="Transparent">
+	                                    <BoxView.Color>
+											<OnPlatform x:TypeArguments="Color"
+									                  iOS="{StaticResource separatorColoriOS}"
+									                  Android="{StaticResource separatorColorAndroid}"
+									                  WinPhone="{StaticResource separatorColorWinPhone}" />
+										</BoxView.Color>
+                                      </BoxView>
+								    </Grid>
+                                </ViewCell.View>
+						    </ViewCell>
+					    </DataTemplate>
+				    </ListView.ItemTemplate>
+            </localCommonViews:ListView>
+          </StackLayout>
+	</ContentView.Content>
+</ContentView>

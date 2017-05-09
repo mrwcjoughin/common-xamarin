@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+    x:Class="common.xamarin.Core.Views.DefaultView"
+    >
+    <ContentView.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+                  iOS="{StaticResource standardBackgroundColoriOS}"
+                  Android="{StaticResource standardBackgroundColorAndroid}"
+                  WinPhone="{StaticResource standardBackgroundColorWinPhone}" />
+	</ContentView.BackgroundColor>
+	<ContentView.Content HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+	    <StackLayout Spacing="0">
+	      <ActivityIndicator 
+	              HorizontalOptions="CenterAndExpand"
+	              VerticalOptions="CenterAndExpand"
+	              IsVisible="{Binding IsBusy}"
+	              IsRunning="{Binding IsBusy}"
+	              />
+	    </StackLayout>
+	</ContentView.Content>
+</ContentView>
