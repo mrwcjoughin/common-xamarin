@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+	xmlns:localPages="clr-namespace:common.xamarin.Core.Pages;assembly=common.xamarin.Core"
+    xmlns:localViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+	x:Class="common.xamarin.Core.Pages.PhoneRootPage"
+	>
+	<ContentPage.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+                  iOS="{StaticResource pageBackgroundColoriOS}"
+                  Android="{StaticResource pageBackgroundColorAndroid}"
+                  WinPhone="{StaticResource pageBackgroundColorWinPhone}" />
+	</ContentPage.BackgroundColor>
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+					iOS="0, 20, 0, 0"
+					Android="0, 0, 0, 0"
+					WinPhone="0, 0, 0, 0" />
+	</ContentPage.Padding>
+  	<ContentPage.Content>
+		<Grid x:Name="contentGrid"
+			RowSpacing="0"
+            ColumnSpacing="0"
+            HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			>
+			<Grid.BackgroundColor>
+				<OnPlatform x:TypeArguments="Color"
+		                  iOS="{StaticResource pageBackgroundColoriOS}"
+		                  Android="{StaticResource pageBackgroundColorAndroid}"
+		                  WinPhone="{StaticResource pageBackgroundColorWinPhone}" />
+			</Grid.BackgroundColor>
+			<Grid.Padding>
+				<OnPlatform x:TypeArguments="Thickness"
+							iOS="0, 0, 0, 0"
+							Android="0, 0, 0, 0"
+							WinPhone="0, 0, 0, 0" />
+			</Grid.Padding>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

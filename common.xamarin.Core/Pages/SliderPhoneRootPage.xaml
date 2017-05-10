@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xfc="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+    xmlns:localPages="clr-namespace:common.xamarin.Core.Pages;assembly=common.xamarin.Core"
+    xmlns:localViews="clr-namespace:common.xamarin.Core.Views;assembly=common.xamarin.Core"
+    x:Class="common.xamarin.Core.Pages.SliderPhoneRootPage"
+    BackgroundColor="Black"
+	Padding="{StaticResource zeroPaddingThickness}"
+	>
+<!--    <MasterDetailPage.BackgroundColor>
+		<OnPlatform x:TypeArguments="Color"
+                  iOS="{StaticResource pageBackgroundColoriOS}"
+                  Android="{StaticResource pageBackgroundColorAndroid}"
+                  WinPhone="{StaticResource pageBackgroundColorWinPhone}" />
+	</MasterDetailPage.BackgroundColor>-->
+<!--    <MasterDetailPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 0, 0, 0"
+                    Android="0, 0, 0, 0"
+                    WinPhone="0, 0, 0, 0" />
+    </MasterDetailPage.Padding>-->
+    <MasterDetailPage.Master>
+        <ContentPage x:Name="menuPage" 
+            Title="menuPage"
+			Padding="{StaticResource zeroPaddingThickness}"
+            >
+            <!--<ContentPage.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0, 0, 0, 0"
+                            Android="0, 0, 0, 0"
+                            WinPhone="0, 0, 0, 0" />
+            </ContentPage.Padding>-->
+
+            <StackLayout HorizontalOptions="StartAndExpand" 
+              	VerticalOptions="StartAndExpand"
+				Orientation="Vertical"
+				Padding="{StaticResource zeroPaddingThickness}"
+				Spacing="0"
+              	>
+<!--                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0, 0, 0, 0"
+                                Android="0, 0, 0, 0"
+                                WinPhone="0, 0, 0, 0" />
+                </StackLayout.Padding>-->
+                <ContentView Padding="{StaticResource zeroPaddingThickness}">
+                	<ContentView.BackgroundColor>
+						<OnPlatform x:TypeArguments="Color"
+				                  iOS="{StaticResource navigationBarBackgroundColoriOS}"
+				                  Android="{StaticResource navigationBarBackgroundColorAndroid}"
+				                  WinPhone="{StaticResource navigationBarBackgroundColorWinPhone}" />
+					</ContentView.BackgroundColor>
+					<ContentView.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                      iOS="25"
+                                      Android="0"
+                                      WinPhone="0"/>
+                    </ContentView.HeightRequest>
+<!--					<ContentView.Padding>
+	                    <OnPlatform x:TypeArguments="Thickness"
+	                                iOS="0, 0, 0, 0"
+	                                Android="0, 0, 0, 0"
+	                                WinPhone="0, 0, 0, 0" />
+	                </ContentView.Padding>-->
+                </ContentView>
+
+                <localViews:MenuView x:Name="menuView"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    HeightRequest="{Binding PageHeight}"
+					Padding="{StaticResource zeroPaddingThickness}"
+                    >
+<!--					<localViews:MenuView.Padding>
+	                    <OnPlatform x:TypeArguments="Thickness"
+	                                iOS="0, 0, 0, 0"
+	                                Android="0, 0, 0, 0"
+	                                WinPhone="0, 0, 0, 0" />
+	                </localViews:MenuView.Padding>-->
+                </localViews:MenuView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage x:Name="detailPage" 
+            Title="detailPage"
+			BackgroundColor="Yellow"
+			Padding="{StaticResource zeroPaddingThickness}"
+            >
+ <!--           <ContentPage.BackgroundColor>
+				<OnPlatform x:TypeArguments="Color"
+		                  iOS="{StaticResource pageBackgroundColoriOS}"
+		                  Android="{StaticResource pageBackgroundColorAndroid}"
+		                  WinPhone="{StaticResource pageBackgroundColorWinPhone}" />
+			</ContentPage.BackgroundColor>-->
+<!--            <ContentPage.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0, 0, 0, 0"
+                            Android="0, 0, 0, 0"
+                            WinPhone="0, 0, 0, 0" />
+            </ContentPage.Padding>-->
+
+            <!--<StackLayout HorizontalOptions="FillAndExpand" 
+            	VerticalOptions="FillAndExpand" 
+            	Orientation="Vertical"
+				Padding="{StaticResource zeroPaddingThickness}"
+				Spacing="0"
+				>-->
+                <!--<StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0, 0, 0, 0"
+                                Android="0, 0, 0, 0"
+                                WinPhone="0, 0, 0, 0" />
+                </StackLayout.Padding>-->
+
+                <!--<ContentView HorizontalOptions="FillAndExpand" 
+            		VerticalOptions="FillAndExpand"
+					BackgroundColor="Fuchsia"
+					Padding="{StaticResource zeroPaddingThickness}">
+					<ContentView.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                      iOS="25"
+                                      Android="0"
+                                      WinPhone="0"/>
+                    </ContentView.HeightRequest>
+                   <<ContentView.BackgroundColor>
+						<OnPlatform x:TypeArguments="Color"
+				                  iOS="{StaticResource navigationBarBackgroundColoriOS}"
+				                  Android="{StaticResource navigationBarBackgroundColorAndroid}"
+				                  WinPhone="{StaticResource navigationBarBackgroundColorWinPhone}" />
+					</ContentView.BackgroundColor>
+                <</ContentView>-->
+
+                <ContentView x:Name="contentView"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+					Padding="{StaticResource zeroPaddingThickness}"
+                    >
+<!--                    <ContentView.BackgroundColor>
+					HeightRequest="{Binding PageHeight}"
+						<OnPlatform x:TypeArguments="Color"
+				                  iOS="{StaticResource standardBackgroundColoriOS}"
+				                  Android="{StaticResource standardBackgroundColorAndroid}"
+				                  WinPhone="{StaticResource standardBackgroundColorWinPhone}" />
+					</ContentView.BackgroundColor>-->
+<!--					<ContentView.Padding>
+	                    <OnPlatform x:TypeArguments="Thickness"
+	                                iOS="0, 0, 0, 0"
+	                                Android="0, 0, 0, 0"
+	                                WinPhone="0, 0, 0, 0" />
+	                </ContentView.Padding>-->
+				</ContentView>
+            <!--</StackLayout>-->
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

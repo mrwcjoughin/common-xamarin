@@ -20,6 +20,7 @@ namespace common.xamarin.Core.Views
 
 		public EntryView ()
 		{
+			
 		}
 
 		#endregion Constructors
