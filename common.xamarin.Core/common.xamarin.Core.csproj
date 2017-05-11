@@ -90,18 +90,6 @@
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\AWSSDK.CognitoIdentity.3.3.2.9\lib\portable-net45+win8+wpa81+wp8\AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
-    <Reference Include="PInvoke.Windows.Core">
-      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.Windows.Core.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Windows.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="PInvoke.Kernel32">
-      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.Kernel32.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Kernel32.dll</HintPath>
-    </Reference>
-    <Reference Include="PInvoke.BCrypt">
-      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.BCrypt.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.BCrypt.dll</HintPath>
-    </Reference>
-    <Reference Include="PInvoke.NCrypt">
-      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.NCrypt.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.NCrypt.dll</HintPath>
-    </Reference>
     <Reference Include="Validation">
       <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\Validation.2.4.15\lib\portable-net45+win8+wp8+wpa81\Validation.dll</HintPath>
     </Reference>
@@ -110,6 +98,18 @@
     </Reference>
     <Reference Include="AWSSDK.S3">
       <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\AWSSDK.S3.3.3.6\lib\portable-net45+win8+wpa81+wp8\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Windows.Core">
+      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.Windows.Core.0.5.64\lib\portable-net45+win8+wpa81\PInvoke.Windows.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Kernel32">
+      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.Kernel32.0.5.64\lib\portable-net45+win8+wpa81\PInvoke.Kernel32.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.BCrypt">
+      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.BCrypt.0.5.64\lib\portable-net45+win8+wpa81\PInvoke.BCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.NCrypt">
+      <HintPath>..\..\tempmatch-xamarin\tempmatch.xamarin\packages\PInvoke.NCrypt.0.5.64\lib\portable-net45+win8+wpa81\PInvoke.NCrypt.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
