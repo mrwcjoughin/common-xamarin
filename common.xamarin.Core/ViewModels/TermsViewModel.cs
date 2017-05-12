@@ -54,6 +54,11 @@ namespace common.xamarin.Core.ViewModels
 			SessionContext.CurrentNavigationHandler.NavigateToLoginPage ();
         }
 
+		public override void UpdateValidation (string specificFieldName = null)
+		{
+			//Nothing to do here in this ViewModel
+		}
+
         #endregion Methods
     }
 }

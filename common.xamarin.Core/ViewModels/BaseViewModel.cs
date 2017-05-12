@@ -10,7 +10,7 @@ using MvvmCross.Core.ViewModels;
 
 namespace common.xamarin.Core.ViewModels
 {
-	public abstract class BaseViewModel : INotifyPropertyChanged
+	public abstract class BaseViewModel : MvxViewModel, INotifyPropertyChanged
 	{
 		#region Private Fields
 
@@ -46,7 +46,7 @@ namespace common.xamarin.Core.ViewModels
 			}
 			set
 			{
-				_isLoading = value;
+				SetProperty(ref _isLoading, value);
 				NotifyAllBusySecurityRelatedPropertiesChanged ();
 				BusyMessage = _isLoading ? "Refreshing..." : string.Empty;
 			}
@@ -83,7 +83,7 @@ namespace common.xamarin.Core.ViewModels
 			}
 			set
 			{
-				_isBusyFetching = value;
+				SetProperty(ref _isBusyFetching, value);
 				NotifyAllBusySecurityRelatedPropertiesChanged ();
 			}
 		}
@@ -306,6 +306,8 @@ namespace common.xamarin.Core.ViewModels
 			OnPropertyChanged ("IsEnabled");
 			OnPropertyChanged ("IsNotBusy");
 		}
+
+		public abstract void UpdateValidation(string specificFieldName = null);
 
 		#endregion
 	}

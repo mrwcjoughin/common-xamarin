@@ -38,9 +38,9 @@ namespace common.xamarin.Core.ViewModels
 //            _adminMenuOptionItems.Add(new common.xamarin.Core.Helpers.SettingsMenuOptionItem());
 //            _adminMenuOptionItems.Add(new common.xamarin.Core.Helpers.LogoutMenuOptionItem());
 
-			OnPropertyChanged ("MenuOptionItems");
+			//OnPropertyChanged ("MenuOptionItems");
 
-			OnPropertyChanged ("AdminMenuOptionItems");
+			//OnPropertyChanged ("AdminMenuOptionItems");
 		}
 
         public string MenuName
@@ -89,8 +89,8 @@ namespace common.xamarin.Core.ViewModels
         {
             await base.Refresh ();
 
-            OnPropertyChanged ("MenuName");
-            OnPropertyChanged ("AdminMenuName");
+            //OnPropertyChanged ("MenuName");
+            //OnPropertyChanged ("AdminMenuName");
         }
 
 //		public MenuOptionItem SelectedMenuOptionItem
@@ -174,5 +174,10 @@ namespace common.xamarin.Core.ViewModels
 //				MessagingCenter.Send<INavigationPage, Alert>(SessionContext.CurrentNavigationHandler.CurrentPage, Public.MessagingType.Alert.ToString(), new Alert(ex.Message, null, SessionContext.LanguageResolver.GetTranslatedString("LoginErrorTitle, SessionContext.LanguageResolver.GetTranslatedString("Ok));
 //			}
 //		}
+
+		public override void UpdateValidation (string specificFieldName = null)
+		{
+			//Nothing to do here in this ViewModel
+		}
 	}
 }

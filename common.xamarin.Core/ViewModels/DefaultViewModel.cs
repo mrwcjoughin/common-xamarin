@@ -12,5 +12,14 @@ namespace common.xamarin.Core.ViewModels
 		}
 
 		#endregion Constructors
+
+		#region Methods
+
+		public override void UpdateValidation (string specificFieldName = null)
+		{
+			//Nothing to do here in this ViewModel
+		}
+
+		#endregion Methods
 	}
 }

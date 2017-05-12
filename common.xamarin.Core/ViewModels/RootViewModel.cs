@@ -27,15 +27,22 @@ namespace common.xamarin.Core.ViewModels
 			{
                 if ((_currentView != value) || (!_currentView.Content.GetType().Equals(value.GetType())))
                 { 
-                    _currentView = value;
-
-				    OnPropertyChanged ("CurrentView");
+                    SetProperty(ref _currentView, value);
+				    //OnPropertyChanged ("CurrentView");
 
                     //MessagingCenter.Send<INavigationPage, ChangeViewMessage>(SessionContext.CurrentNavigationHandler.CurrentPage, Public.MessagingType.ChangeView.ToString(), new ChangeViewMessage(this));
 					SessionContext.CurrentNavigationHandler.CurrentNavigationPresenter.UpdateView();
                 }
 			}
 		}
+
+		#region Methods
+
+		public override void UpdateValidation (string specificFieldName = null)
+		{
+			//Nothing to do here in this ViewModel
+		}
+
+		#endregion Methods
 	}
 }
-

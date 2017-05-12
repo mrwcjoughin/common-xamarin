@@ -11,10 +11,12 @@ namespace common.xamarin.Core.Views
 		#region Fields
 
 		public static readonly BindableProperty BorderColorProperty = BindableProperty.Create("BorderColor", typeof(Color), typeof(EntryView), Color.Black);
+		public static readonly BindableProperty FieldNameProperty = BindableProperty.Create("FieldName", typeof(string), typeof(EntryView), string.Empty);
 		public static readonly BindableProperty FontProperty = BindableProperty.Create("Font", typeof(Font), typeof(EntryView), new Font());
 //		public static readonly BindableProperty FontSizeProperty = BindableProperty.Create("FontSize", typeof(Double), typeof(EntryView), new Double());
 		//public static readonly BindableProperty PlaceholderColorProperty = BindableProperty.Create<EntryView, Color> (p => p.PlaceholderColor, Color.Default);
 		//public static readonly BindableProperty PlaceholderColorProperty = BindableProperty.Create("PlaceholderColor", typeof(Color), typeof(EntryView), Color.Black);
+		public static readonly BindableProperty IsRequiredProperty = BindableProperty.Create("IsRequired", typeof(bool), typeof(EntryView), false);
 		public static readonly BindableProperty ValidationTextProperty = BindableProperty.Create("ValidationText", typeof(string), typeof(EntryView), string.Empty);
 
 		#endregion Fields
@@ -39,6 +41,18 @@ namespace common.xamarin.Core.Views
 			set
 			{
 				SetValue (BorderColorProperty, value);
+			}
+		}
+
+		public string FieldName
+		{
+			get 
+			{
+				return (string)GetValue (FieldNameProperty);
+			}
+			set
+			{
+				SetValue (FieldNameProperty, value);
 			}
 		}
 
@@ -72,7 +86,19 @@ namespace common.xamarin.Core.Views
 		//	set { SetValue (PlaceholderColorProperty, value); }
 		//}
 
-		public string ValidationText 
+		public bool IsRequired
+		{
+			get 
+			{
+				return (bool)GetValue (IsRequiredProperty);
+			}
+			set
+			{
+				SetValue (IsRequiredProperty, value);
+			}
+		}
+
+		public string ValidationText
 		{
 			get 
 			{
