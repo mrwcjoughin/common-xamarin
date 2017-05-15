@@ -119,14 +119,28 @@
     <Compile Include="Views\EntryView.cs" />
     <Compile Include="Views\LabelView.cs" />
     <Compile Include="Views\ListView.cs" />
-    <Compile Include="Views\MenuItemView.xaml.cs" />
-    <Compile Include="Views\MenuView.xaml.cs" />
-    <Compile Include="Views\NavigationBarView.xaml.cs" />
-    <Compile Include="Views\RootNavigationBarView.xaml.cs" />
+    <Compile Include="Views\MenuItemView.xaml.cs">
+      <DependentUpon>MenuItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigationBarView.xaml.cs">
+      <DependentUpon>NavigationBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RootNavigationBarView.xaml.cs">
+      <DependentUpon>RootNavigationBarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RoundedBoxView.cs" />
-    <Compile Include="Views\SearchBarView.xaml.cs" />
-    <Compile Include="Views\SingleSelectListView.xaml.cs" />
-    <Compile Include="Views\TermsView.xaml.cs" />
+    <Compile Include="Views\SearchBarView.xaml.cs">
+      <DependentUpon>SearchBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SingleSelectListView.xaml.cs">
+      <DependentUpon>SingleSelectListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TermsView.xaml.cs">
+      <DependentUpon>TermsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WebView.cs" />
     <Compile Include="Enums\AuthenticateResultStatus.cs" />
     <Compile Include="Enums\DeviceType.cs" />
@@ -164,11 +178,21 @@
     <Compile Include="Navigation\NavigationItem.cs" />
     <Compile Include="Public.cs" />
     <Compile Include="SessionContext.cs" />
-    <Compile Include="Pages\DefaultPage.xaml.cs" />
-    <Compile Include="Pages\PhoneRootPage.xaml.cs" />
-    <Compile Include="Pages\SliderPhoneRootPage.xaml.cs" />
-    <Compile Include="Pages\TabletRootPage.xaml.cs" />
-    <Compile Include="Pages\TermsPage.xaml.cs" />
+    <Compile Include="Pages\DefaultPage.xaml.cs">
+      <DependentUpon>DefaultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PhoneRootPage.xaml.cs">
+      <DependentUpon>PhoneRootPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SliderPhoneRootPage.xaml.cs">
+      <DependentUpon>SliderPhoneRootPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TabletRootPage.xaml.cs">
+      <DependentUpon>TabletRootPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TermsPage.xaml.cs">
+      <DependentUpon>TermsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Messages\BaseMessage.cs" />
     <Compile Include="Messages\ChangeViewMessage.cs" />
   </ItemGroup>
@@ -189,7 +213,7 @@
     <EmbeddedResource Include="Views\DefaultView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <Compile Include="Views\DefaultView.xaml.cs" />
+    <Compile Include="Views\DefaultView.xaml.cs"/>
     <EmbeddedResource Include="Views\MenuItemView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
