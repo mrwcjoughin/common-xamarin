@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using common.xamarin.Core.Interfaces;
 using common.xamarin.Core.Helpers;
 using common.xamarin.Core.ViewModels;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.Pages
 {
@@ -19,13 +20,13 @@ namespace common.xamarin.Core.Pages
         private INavigationItem _navigationItem = null;
         private INavigationItem _previousNavigationItem = null;
 
-        public TermsPage()
+        public TermsPage(IMvxNavigationService navigation)
         {
 			this.Resources = SessionContext.Resources;
 
 			InitializeComponent();
 
-            this.BindingContext = new TermsViewModel();
+            this.BindingContext = new TermsViewModel(navigation);
         }
 
         public INavigationItem NavigationItem

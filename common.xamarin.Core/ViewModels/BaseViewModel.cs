@@ -7,12 +7,15 @@ using Xamarin.Forms;
 using XLabs;
 
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.ViewModels
 {
 	public abstract class BaseViewModel : MvxViewModel, INotifyPropertyChanged
 	{
 		#region Private Fields
+
+        protected readonly IMvxNavigationService _navigationService;
 
 		public virtual event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,9 +32,9 @@ namespace common.xamarin.Core.ViewModels
 
 		#region Constructors
 
-		public BaseViewModel ()
+		public BaseViewModel (IMvxNavigationService navigationService)
 		{
-			
+			_navigationService = navigationService;
 		}
 
 		#endregion Constructors

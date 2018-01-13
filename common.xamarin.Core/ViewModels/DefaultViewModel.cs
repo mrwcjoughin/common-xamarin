@@ -1,12 +1,14 @@
 ﻿using System;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.ViewModels
 {
 	public class DefaultViewModel : BaseViewModel
 	{
-		#region Constructors
+        #region Constructors
 
-		public DefaultViewModel ()
+        public DefaultViewModel(IMvxNavigationService navigation)
+            : base (navigation)
 		{
 			this.IsLoading = true;
 		}

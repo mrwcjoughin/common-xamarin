@@ -10,6 +10,7 @@ using common.xamarin.Core.Interfaces;
 //using common.xamarin.Core.Messages;
 using common.xamarin.Core.Helpers;
 using common.xamarin.Core.ViewModels;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.Pages
 {
@@ -23,7 +24,7 @@ namespace common.xamarin.Core.Pages
 
         #endregion Fields
 
-        public SliderPhoneRootPage ()
+        public SliderPhoneRootPage (IMvxNavigationService navigation)
         {
 			this.Resources = SessionContext.Resources;
 
@@ -38,7 +39,7 @@ namespace common.xamarin.Core.Pages
 
             SessionContext.CurrentNavigationHandler.CurrentNavigationPresenter = this;
 
-            SessionContext.CurrentNavigationHandler.CurrentRootViewModel = new RootViewModel();
+            SessionContext.CurrentNavigationHandler.CurrentRootViewModel = new RootViewModel(navigation);
 
             this.BindingContext = SessionContext.CurrentNavigationHandler.CurrentRootViewModel;
 

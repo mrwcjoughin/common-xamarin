@@ -4,17 +4,20 @@ using Xamarin.Forms;
 
 using common.xamarin.Core.Interfaces;
 using common.xamarin.Core.Views;
+using MvvmCross.Core.Navigation;
 //using common.xamarin.Core.Messages;
 
 namespace common.xamarin.Core.ViewModels
 {
 	public class RootViewModel : BaseViewModel
 	{
-		private Xamarin.Forms.ContentView _currentView = new DefaultView();
+		private Xamarin.Forms.ContentView _currentView = null;
 		
-		public RootViewModel ()
+		public RootViewModel (IMvxNavigationService navigation)
+            : base (navigation)
 		{
 			//this.PageBackgroundColor = Public.GetPageBackgroundColor();
+            _currentView = new DefaultView();
 		}
 
 		public Xamarin.Forms.ContentView CurrentView

@@ -6,14 +6,25 @@ using XLabs;
 using common.xamarin.Core.Enums;
 using common.xamarin.Core.Language;
 using System.Threading.Tasks;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.ViewModels
 {
     public class TermsViewModel : BaseViewModel
     {
-        #region Properties
+        #region Constructors
 
-        public string TitleText
+        public TermsViewModel(IMvxNavigationService navigation)
+            : base(navigation)
+        {
+
+        }
+
+		#endregion Constructors
+
+		#region Properties
+
+		public string TitleText
         {
             get
             {

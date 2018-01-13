@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 
 using common.xamarin.Core.Interfaces;
 using common.xamarin.Core.ViewModels;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.Views
 {
@@ -17,8 +18,6 @@ namespace common.xamarin.Core.Views
 			this.Resources = SessionContext.Resources;
 
 			InitializeComponent();
-
-			this.BindingContext = new DefaultViewModel ();
 		}
 
 		public common.xamarin.Core.ViewModels.BaseViewModel BaseViewModel

@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using common.xamarin.Core.Helpers;
 using common.xamarin.Core.Interfaces;
 using common.xamarin.Core.Navigation;
+using MvvmCross.Core.Navigation;
 
 namespace common.xamarin.Core.ViewModels
 {
@@ -25,7 +26,8 @@ namespace common.xamarin.Core.ViewModels
 //		private ObservableCollection<MenuOptionItemGroup> _ = new ObservableCollection<MenuOptionItemGroup>();
         
 
-		public MenuViewModel()
+		public MenuViewModel(IMvxNavigationService navigation)
+            : base(navigation)
 		{
 			//TODO: Get menu items generically
 //            _menuOptionItems.Add(new common.xamarin.Core.Helpers.MapMenuOptionItem());
